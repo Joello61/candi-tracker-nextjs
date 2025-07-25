@@ -28,6 +28,7 @@ import { ChevronLeft, ChevronRight, Calendar, Plus, Clock } from 'lucide-react';
 import { useUpcomingInterviews } from '@/hooks/useInterviews';
 import { InterviewType, type CalendarEvent } from '@/types';
 import { cn } from '@/lib/utils';
+import { Metadata } from 'next';
 
 const typeColors = {
   [InterviewType.PHONE]: 'bg-blue-500',
@@ -40,6 +41,25 @@ const typeColors = {
 
 interface InterviewCalendarProps {
   className?: string;
+}
+
+export const interviewCalendarMetadata: Metadata = {
+  title: 'Calendrier des entretiens',
+  description: 'Visualisez tous vos entretiens d\'embauche dans un calendrier interactif. Planifiez et organisez vos rendez-vous professionnels sur Candi Tracker.',
+  keywords: [
+    'calendrier entretiens',
+    'planning interviews',
+    'agenda entretiens',
+    'vue calendrier',
+    'organisation entretiens',
+    'rendez-vous emploi',
+    'planning recherche emploi'
+  ],
+  openGraph: {
+    title: 'Calendrier des entretiens | Candi Tracker',
+    description: 'Votre agenda personnalisé pour ne manquer aucun entretien et optimiser votre planning.',
+    images: [{ url: '/og-calendar.jpg', width: 1200, height: 630 }],
+  }
 }
 
 export const InterviewCalendarPage: React.FC<InterviewCalendarProps> = ({

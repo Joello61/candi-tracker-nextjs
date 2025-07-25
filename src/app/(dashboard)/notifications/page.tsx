@@ -33,8 +33,30 @@ import {
   useCreateNotification,
 } from '@/hooks/useNotifications';
 import type { NotificationFilters as NotificationFiltersType } from '@/services/notificationService';
+import { Metadata } from 'next';
 
 const ITEMS_PER_PAGE = 20;
+
+export const notificationsMetadata: Metadata = {
+  title: 'Notifications',
+  description: 'Consultez toutes vos notifications Candi Tracker. Alertes d\'entretiens, mises à jour de candidatures et rappels importants.',
+  keywords: [
+    'notifications',
+    'alertes',
+    'rappels entretiens',
+    'notifications candidatures',
+    'alerts',
+    'messages système',
+    'updates',
+    'rappels emploi'
+  ],
+  robots: 'noindex, nofollow',
+  openGraph: {
+    title: 'Centre de notifications | Candi Tracker',
+    description: 'Restez informé de toute l\'activité de votre recherche d\'emploi.',
+    images: [{ url: '/og-notifications.jpg', width: 1200, height: 630 }],
+  }
+}
 
 export const NotificationsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('notifications');

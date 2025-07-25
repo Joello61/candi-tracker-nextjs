@@ -11,6 +11,27 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { AdminDashboard } from '@/components/features/AdminDashboard';
 import { Shield, ArrowLeft } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import { Metadata } from 'next';
+
+export const adminDashboardMetadata: Metadata = {
+  title: 'Tableau de bord Admin',
+  description: 'Interface d\'administration de Candi Tracker. Gérez les utilisateurs, surveillez les statistiques et administrez la plateforme de suivi de candidatures.',
+  keywords: [
+    'admin dashboard',
+    'administration',
+    'gestion utilisateurs',
+    'statistiques plateforme',
+    'tableau de bord admin',
+    'monitoring',
+    'analytics admin'
+  ],
+  robots: 'noindex, nofollow',
+  openGraph: {
+    title: 'Administration | Candi Tracker',
+    description: 'Interface d\'administration pour la gestion de la plateforme Candi Tracker.',
+    images: [{ url: '/og-admin.jpg', width: 1200, height: 630 }],
+  }
+}
 
 export const AdminDashboardPage: React.FC = () => {
   const navigate = useRouter();

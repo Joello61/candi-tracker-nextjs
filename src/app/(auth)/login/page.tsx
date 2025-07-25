@@ -16,6 +16,27 @@ import { OAuthButtons } from '@/components/auth/OAuthButtons';
 
 import { useAuthForm } from '@/hooks/useAuthForm';
 import { loginSchema, type LoginFormData } from '@/utils/validationSchemas';
+import { Metadata } from 'next';
+
+export const loginMetadata: Metadata = {
+  title: 'Connexion',
+  description: 'Connectez-vous à votre espace Candi Tracker pour gérer vos candidatures, suivre vos entretiens et optimiser votre recherche d\'emploi.',
+  keywords: [
+    'connexion',
+    'login',
+    'se connecter',
+    'espace personnel',
+    'suivi candidatures',
+    'tableau de bord emploi',
+    'authentification',
+    'accès compte'
+  ],
+  openGraph: {
+    title: 'Connexion à votre espace | Candi Tracker',
+    description: 'Accédez à votre tableau de bord personnalisé pour suivre toutes vos candidatures et opportunités d\'emploi.',
+    images: [{ url: '/og-login.jpg', width: 1200, height: 630 }],
+  }
+}
 
 export const LoginPage: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);

@@ -17,6 +17,27 @@ import { InterviewForm } from '@/components/forms/InterviewForm';
 import { useInterview, useUpdateInterview } from '@/hooks/useInterviews';
 import { useApplications } from '@/hooks/useApplications';
 import type { InterviewForm as InterviewFormType } from '@/types';
+import { Metadata } from 'next';
+
+export const editInterviewMetadata: Metadata = {
+  title: 'Modifier entretien',
+  description: 'Modifiez les détails de votre entretien d\'embauche sur Candi Tracker. Mettez à jour l\'horaire, les notes et les informations importantes.',
+  keywords: [
+    'modifier entretien',
+    'éditer interview',
+    'mettre à jour entretien',
+    'edit interview',
+    'modification rendez-vous',
+    'update entretien',
+    'gestion entretiens'
+  ],
+  robots: 'noindex, nofollow',
+  openGraph: {
+    title: 'Modification d\'entretien | Candi Tracker',
+    description: 'Actualisez toutes les informations de votre entretien pour rester organisé.',
+    images: [{ url: '/og-interviews.jpg', width: 1200, height: 630 }],
+  }
+}
 
 export const EditInterviewPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

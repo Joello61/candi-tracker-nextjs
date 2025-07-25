@@ -13,6 +13,28 @@ import { SecuritySettings } from '@/components/features/SecuritySettings'; // �
 import { useAuth } from '@/contexts/AuthContext';
 import { UserRole } from '@/types';
 import { AdminDashboard } from '@/components/features/AdminDashboard';
+import { Metadata } from 'next';
+
+export const settingsMetadata: Metadata = {
+  title: 'Paramètres',
+  description: 'Configurez votre compte Candi Tracker. Personnalisez vos préférences, notifications, sécurité et paramètres de confidentialité.',
+  keywords: [
+    'paramètres',
+    'settings',
+    'configuration compte',
+    'préférences utilisateur',
+    'paramètres notifications',
+    'sécurité compte',
+    'confidentialité',
+    'personnalisation'
+  ],
+  robots: 'noindex, nofollow',
+  openGraph: {
+    title: 'Paramètres du compte | Candi Tracker',
+    description: 'Personnalisez votre expérience et configurez votre compte selon vos préférences.',
+    images: [{ url: '/og-settings.jpg', width: 1200, height: 630 }],
+  }
+}
 
 export const SettingsPage: React.FC = () => {
   const { user } = useAuth();
