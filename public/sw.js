@@ -3,7 +3,6 @@ const CACHE_NAME = 'candi-tracker-v1';
 const CACHE_ASSETS = [
   '/',
   '/favicon.ico',
-  '/favicon.svg',
   '/logo.png'
 ];
 
