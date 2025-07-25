@@ -2,7 +2,7 @@ import SettingsClient from "./SettingsClient";
 
 import { Metadata } from 'next';
 
-export const settingsMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Paramètres',
   description: 'Configurez votre compte Candi Tracker. Personnalisez vos préférences, notifications, sécurité et paramètres de confidentialité.',
   keywords: [

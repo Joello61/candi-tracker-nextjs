@@ -2,7 +2,7 @@ import DashboardClient from "./DashboardClient";
 
 import { Metadata } from 'next';
 
-export const dashboardMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Tableau de bord',
   description: 'Votre tableau de bord personnel Candi Tracker. Vue d\'ensemble de vos candidatures, entretiens à venir et statistiques de recherche d\'emploi.',
   keywords: [

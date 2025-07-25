@@ -2,7 +2,7 @@ import LoginClient from "./LoginClient";
 
 import { Metadata } from 'next';
 
-export const loginMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Connexion',
   description: 'Connectez-vous à votre espace Candi Tracker pour gérer vos candidatures, suivre vos entretiens et optimiser votre recherche d\'emploi.',
   keywords: [

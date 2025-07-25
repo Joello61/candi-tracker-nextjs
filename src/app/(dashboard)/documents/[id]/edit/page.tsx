@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import EditDocumentClient from "./EditDocumentClient";
 
-export const editDocumentMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Modifier document',
   description: 'Modifiez vos documents professionnels sur Candi Tracker. Mettez à jour vos CV, lettres de motivation et autres fichiers importants.',
   keywords: [

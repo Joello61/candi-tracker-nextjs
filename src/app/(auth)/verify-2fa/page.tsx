@@ -2,7 +2,7 @@ import TwoFactorVerificationClient from "./Verify2FaClient";
 
 import { Metadata } from 'next';
 
-export const twoFactorMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Vérification en deux étapes',
   description: 'Finalisez votre connexion sécurisée avec la vérification en deux étapes. Saisissez le code reçu pour accéder à votre espace Candi Tracker.',
   keywords: [

@@ -2,7 +2,7 @@ import CreateInterviewClient from "./CreateInterviewClient";
 
 import { Metadata } from 'next';
 
-export const createInterviewMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Nouvel entretien',
   description: 'Planifiez un nouvel entretien d\'embauche sur Candi Tracker. Ajoutez les détails, l\'horaire et préparez votre rendez-vous professionnel.',
   keywords: [

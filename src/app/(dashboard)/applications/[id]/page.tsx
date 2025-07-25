@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import ApplicationDetailsClient from "./ApplicationDetailsClient";
 
-export const applicationDetailsMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Détails de candidature',
   description: 'Consultez tous les détails de votre candidature : statut, entreprise, poste, notes et historique complet sur Candi Tracker.',
   keywords: [

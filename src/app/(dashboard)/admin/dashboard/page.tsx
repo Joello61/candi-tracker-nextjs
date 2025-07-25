@@ -2,7 +2,7 @@ import AdminDashboardClient from "./AdminDashboardClient";
 
 import { Metadata } from 'next';
 
-export const adminDashboardMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Tableau de bord Admin',
   description: 'Interface d\'administration de Candi Tracker. Gérez les utilisateurs, surveillez les statistiques et administrez la plateforme de suivi de candidatures.',
   keywords: [

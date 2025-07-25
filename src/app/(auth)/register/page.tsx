@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import RegisterClient from "./RegisterClient";
 
-export const registerMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Créer un compte',
   description: 'Rejoignez Candi Tracker gratuitement ! Créez votre compte pour commencer à organiser et suivre efficacement toutes vos candidatures d\'emploi.',
   keywords: [

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import NotificationsClient from "./NotificationsClient";
 
-export const notificationsMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Notifications',
   description: 'Consultez toutes vos notifications Candi Tracker. Alertes d\'entretiens, mises à jour de candidatures et rappels importants.',
   keywords: [

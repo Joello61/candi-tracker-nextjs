@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import InterviewDetailsClient from "./InterviewDetailsClient";
 
-export const interviewDetailsMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Détails entretien',
   description: 'Consultez tous les détails de votre entretien d\'embauche : horaire, entreprise, notes de préparation et suivi sur Candi Tracker.',
   keywords: [

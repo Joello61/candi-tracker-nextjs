@@ -2,7 +2,7 @@ import EditApplicationClient from "./EditApplicationClient";
 
 import { Metadata } from 'next';
 
-export const editApplicationMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Modifier candidature',
   description: 'Modifiez les détails de votre candidature sur Candi Tracker. Mettez à jour le statut, les notes et toutes les informations importantes.',
   keywords: [

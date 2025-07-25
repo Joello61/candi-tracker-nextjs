@@ -2,7 +2,7 @@ import EditInterviewClient from "./EditInterviewClient";
 
 import { Metadata } from 'next';
 
-export const editInterviewMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Modifier entretien',
   description: 'Modifiez les détails de votre entretien d\'embauche sur Candi Tracker. Mettez à jour l\'horaire, les notes et les informations importantes.',
   keywords: [

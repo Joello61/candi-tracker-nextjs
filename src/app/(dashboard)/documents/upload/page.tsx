@@ -2,7 +2,7 @@ import UploadDocumentClient from "./UploadDocumentClient";
 
 import { Metadata } from 'next';
 
-export const uploadDocumentMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Importer document',
   description: 'Ajoutez vos documents professionnels à Candi Tracker. Téléchargez CV, lettres de motivation, certificats et organisez votre dossier candidature.',
   keywords: [

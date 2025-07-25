@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import ForgotPasswordClient from "./ForgotPasswordClient";
 
-export const forgotPasswordMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Mot de passe oublié',
   description: 'Réinitialisez votre mot de passe Candi Tracker en toute sécurité. Recevez un lien de récupération par email pour retrouver l\'accès à votre compte.',
   keywords: [

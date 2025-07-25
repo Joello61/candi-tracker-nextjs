@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import AdminUserDetailsClient from "./AdminUserDetailsClient";
 
-export const adminUserDetailsMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Détails utilisateur - Admin',
   description: 'Consultez et gérez les informations détaillées d\'un utilisateur de Candi Tracker. Modifiez les permissions et suivez l\'activité.',
   keywords: [

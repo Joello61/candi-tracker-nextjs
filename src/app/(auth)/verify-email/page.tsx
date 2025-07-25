@@ -2,7 +2,7 @@ import EmailVerificationClient from "./VerifyEmailClient";
 
 import { Metadata } from 'next';
 
-export const emailVerificationMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Vérification email',
   description: 'Confirmez votre adresse email pour activer votre compte Candi Tracker et accéder à toutes les fonctionnalités de suivi de candidatures.',
   keywords: [

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import InterviewCalendarClient from "./InterviewCalendarClient";
 
-export const interviewCalendarMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Calendrier des entretiens',
   description: 'Visualisez tous vos entretiens d\'embauche dans un calendrier interactif. Planifiez et organisez vos rendez-vous professionnels sur Candi Tracker.',
   keywords: [

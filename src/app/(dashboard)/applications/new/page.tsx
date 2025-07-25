@@ -2,7 +2,7 @@ import CreateApplicationClient from "./CreateApplicationClient";
 
 import { Metadata } from 'next';
 
-export const createApplicationMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Nouvelle candidature',
   description: 'Ajoutez une nouvelle candidature à votre suivi sur Candi Tracker. Renseignez l\'entreprise, le poste et démarrez le suivi de votre application.',
   keywords: [

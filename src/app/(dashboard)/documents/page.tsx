@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import DocumentsClient from "./DocumentsClient";
 
-export const documentsMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Mes documents',
   description: 'Gérez tous vos documents professionnels sur Candi Tracker. CV, lettres de motivation, certificats - tout votre dossier candidature organisé.',
   keywords: [
