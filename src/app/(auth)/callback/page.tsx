@@ -2,7 +2,7 @@ import OAuthCallbackClient from "./CallbackClient";
 
 import { Metadata } from 'next';
 
-export const oauthCallbackMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Connexion en cours...',
   description: 'Finalisation de votre connexion sécurisée à Candi Tracker. Veuillez patienter pendant la vérification de vos informations.',
   keywords: [
