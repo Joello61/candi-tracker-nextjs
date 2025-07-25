@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { Home, ArrowLeft } from 'lucide-react';
-import { Metadata } from 'next';
+/*import { Metadata } from 'next';
 
 export const notFoundMetadata: Metadata = {
   title: 'Page introuvable - 404',
@@ -22,7 +22,7 @@ export const notFoundMetadata: Metadata = {
     description: 'Cette page n\'existe pas. Retournez à votre espace personnel pour gérer vos candidatures.',
     images: [{ url: '/og-error.jpg', width: 1200, height: 630 }],
   }
-}
+}*/
 
 export const NotFoundPage: React.FC = () => {
   const navigate = useRouter();

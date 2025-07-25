@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { AlertTriangle, Home, RotateCcw } from 'lucide-react';
-import { Metadata } from 'next';
+/*import { Metadata } from 'next';
 
 export const errorMetadata: Metadata = {
   title: 'Erreur - Une erreur s\'est produite',
@@ -22,7 +22,7 @@ export const errorMetadata: Metadata = {
     description: 'Une erreur temporaire empêche l\'accès à cette page. Nous travaillons à la résoudre.',
     images: [{ url: '/og-error.jpg', width: 1200, height: 630 }],
   }
-}
+}*/
 
 export default function ErrorPage({
   error,
