@@ -5,7 +5,7 @@
   import { Separator } from '@/components/ui/separator';
   import { Metadata } from 'next';
 
-  export const privacyPolicyMetadata: Metadata = {
+  export const metadata: Metadata = {
     title: 'Politique de confidentialité',
     description: 'Découvrez comment Candi Tracker protège vos données personnelles et respecte votre vie privée. Notre engagement transparent envers la sécurité de vos informations.',
     keywords: [

@@ -3,7 +3,7 @@ import { ArrowLeft, Scale, Shield, AlertTriangle, FileText, CheckCircle, XCircle
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-export const termsOfUseMetadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Conditions d\'utilisation',
   description: 'Consultez les conditions générales d\'utilisation de Candi Tracker. Droits, obligations et règles d\'usage de notre plateforme de suivi de candidatures.',
   keywords: [
