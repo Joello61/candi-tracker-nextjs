@@ -117,7 +117,10 @@ export const LoginPage: React.FC = () => {
 
   // Vérifier si reCAPTCHA est configuré - LOGIQUE SIMPLIFIÉE
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_APP_RECAPTCHA_SITE_KEY;
-  const showRecaptcha = Boolean(recaptchaSiteKey); // Simplifié !
+  const showRecaptcha = Boolean(recaptchaSiteKey) && (
+    process.env.NODE_ENV === 'production' || 
+    process.env.NODE_ENV === 'development'
+  );
 
   // Pour debug - ajoutez temporairement ceci
   console.log('Debug reCAPTCHA:', {

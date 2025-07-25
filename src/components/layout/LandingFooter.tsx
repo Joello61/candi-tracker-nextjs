@@ -5,7 +5,9 @@ interface FooterProps {
   applicationName?: string;
 }
 
-export const LandingFooter: React.FC<FooterProps> = ({ applicationName = 'JobTracker' }) => {
+export const LandingFooter: React.FC<FooterProps> = ({
+  applicationName = 'Candi Tracker',
+}) => {
   return (
     <footer className="bg-slate-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,7 +20,10 @@ export const LandingFooter: React.FC<FooterProps> = ({ applicationName = 'JobTra
           </div>
 
           <div className="flex space-x-6 text-sm text-slate-400">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+            <Link
+              href="/privacy-policy"
+              className="hover:text-white transition-colors"
+            >
               Confidentialité
             </Link>
             <Link href="/terms" className="hover:text-white transition-colors">

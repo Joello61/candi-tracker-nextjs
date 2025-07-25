@@ -10,11 +10,52 @@ import {
   Target,
   TrendingUp,
 } from 'lucide-react';
+import { Metadata } from 'next';
 import Link from 'next/link';
 
+export const metadata: Metadata = {
+  title: 'Candi Tracker - Suivi intelligent de candidatures',
+  description:
+    "La plateforme ultime pour organiser, suivre et optimiser votre recherche d'emploi. Centralisez vos candidatures, gérez vos entretiens et décrochez votre emploi de rêve.",
+  keywords: [
+    'suivi candidatures',
+    'recherche emploi',
+    'gestion candidatures',
+    'job tracker',
+    'entretiens emploi',
+    'CV organisation',
+    'candidature intelligente',
+    'emploi recherche',
+    'job hunting',
+    'carrière professionnelle',
+  ],
+  openGraph: {
+    title: 'Candi Tracker - Suivez vos candidatures comme un pro',
+    description:
+      "Transformez votre processus de candidature en une machine à succès. Suivi intelligent, gestion d'entretiens et analyses statistiques.",
+    images: [
+      {
+        url: '/api/og?title=Candi Tracker&description=Suivi de candidatures intelligent',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Candi Tracker - Suivi intelligent de candidatures',
+    description:
+      "Organisez et optimisez votre recherche d'emploi avec notre plateforme intelligente.",
+    images: [
+      '/api/og?title=Candi Tracker&description=Suivi de candidatures intelligent',
+    ],
+  },
+};
+
 export const HomePage: React.FC = () => {
-  const applicationName = process.env.NEXT_PUBLIC_APP_NAME || 'JobTracker';
-  
+  const applicationName = process.env.NEXT_PUBLIC_APP_NAME || 'Candi Tracker';
+
   const features = [
     {
       icon: <Target className="w-6 h-6" />,
@@ -179,7 +220,7 @@ export const HomePage: React.FC = () => {
           </h2>
           <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
             Rejoignez des milliers de candidats qui ont transformé leur
-            recherche d&apos;emploi avec JobTracker
+            recherche d&apos;emploi avec Candi Tracker
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

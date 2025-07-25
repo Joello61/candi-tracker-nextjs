@@ -1,20 +1,30 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { 
-  Check, Star, Shield, Sparkles, Gift, ArrowRight,
-  GraduationCap, Briefcase, FileText,
-  HelpCircle, Upload, Award
-} from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { LandingHeader } from '@/components/layout/LandingHeader'
-import { LandingFooter } from '@/components/layout/LandingFooter'
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import {
+  Check,
+  Star,
+  Shield,
+  Sparkles,
+  Gift,
+  ArrowRight,
+  GraduationCap,
+  Briefcase,
+  FileText,
+  HelpCircle,
+  Upload,
+  Award,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { LandingHeader } from '@/components/layout/LandingHeader';
+import { LandingFooter } from '@/components/layout/LandingFooter';
 
 export const metadata: Metadata = {
   title: 'Tarifs',
-  description: 'Choisissez votre plan Candi Tracker : 7.99€/mois pour les étudiants ou 14.99€/mois pour les professionnels. Essai gratuit de 30 jours pour tous.',
+  description:
+    'Choisissez votre plan Candi Tracker : 7.99€/mois pour les étudiants ou 14.99€/mois pour les professionnels. Essai gratuit de 30 jours pour tous.',
   keywords: [
     'prix candi tracker',
     'tarif étudiant 7.99',
@@ -22,18 +32,18 @@ export const metadata: Metadata = {
     'abonnement suivi candidatures',
     'essai gratuit 30 jours',
     'réduction étudiante',
-    'pricing candidatures'
+    'pricing candidatures',
   ],
   openGraph: {
     title: 'Plans et Tarifs - Candi Tracker',
-    description: 'Essai gratuit 30 jours puis 7.99€/mois étudiants ou 14.99€/mois professionnels. Optimisez votre recherche d\'emploi !',
+    description:
+      "Essai gratuit 30 jours puis 7.99€/mois étudiants ou 14.99€/mois professionnels. Optimisez votre recherche d'emploi !",
     images: [{ url: '/og-pricing.jpg', width: 1200, height: 630 }],
-  }
-}
+  },
+};
 
 export default function PricingPage() {
-
-    const applicationName = process.env.NEXT_PUBLIC_APP_NAME || 'JobTracker';
+  const applicationName = process.env.NEXT_PUBLIC_APP_NAME || 'Candi Tracker';
 
   const plans = [
     {
@@ -50,16 +60,13 @@ export default function PricingPage() {
         'Statistiques de base',
         'Notifications par email',
         'Support par email',
-        'Accès à toutes les fonctionnalités'
+        'Accès à toutes les fonctionnalités',
       ],
-      limitations: [
-        'Limité à 30 jours',
-        'Stockage limité à 1 GB'
-      ],
-      cta: 'Commencer l\'essai gratuit',
+      limitations: ['Limité à 30 jours', 'Stockage limité à 1 GB'],
+      cta: "Commencer l'essai gratuit",
       ctaClass: 'bg-green-600 hover:bg-green-700 text-white',
       popular: false,
-      highlight: false
+      highlight: false,
     },
     {
       name: 'Plan Étudiant',
@@ -69,24 +76,25 @@ export default function PricingPage() {
       badge: { text: 'Populaire', color: 'bg-blue-500' },
       icon: GraduationCap,
       features: [
-        'Toutes les fonctionnalités de l\'essai',
+        "Toutes les fonctionnalités de l'essai",
         'Stockage illimité de documents',
         'Statistiques avancées et analytics',
         'Templates de CV personnalisables',
         'Sauvegarde automatique cloud',
         'Support prioritaire',
         'Accès aux nouvelles fonctionnalités',
-        'Formation recherche d\'emploi incluse'
+        "Formation recherche d'emploi incluse",
       ],
       requirements: [
         'Justificatif étudiant requis',
         'Carte étudiante ou certificat scolaire',
-        'Vérification manuelle sous 24h'
+        'Vérification manuelle sous 24h',
       ],
       cta: 'Choisir le plan étudiant',
-      ctaClass: 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white',
+      ctaClass:
+        'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white',
       popular: true,
-      highlight: true
+      highlight: true,
     },
     {
       name: 'Plan Professionnel',
@@ -100,81 +108,123 @@ export default function PricingPage() {
         'Analyses de marché sectorielles',
         'Benchmarks salariaux',
         'Networking et contacts professionnels',
-        'Simulation d\'entretiens IA',
+        "Simulation d'entretiens IA",
         'Rapports de performance détaillés',
-        'API d\'intégration avec LinkedIn',
+        "API d'intégration avec LinkedIn",
         'Support téléphonique prioritaire',
-        'Conseiller carrière dédié (sur demande)'
+        'Conseiller carrière dédié (sur demande)',
       ],
       cta: 'Choisir le plan pro',
-      ctaClass: 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white',
+      ctaClass:
+        'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white',
       popular: false,
-      highlight: false
-    }
-  ]
+      highlight: false,
+    },
+  ];
 
   const faqs = [
     {
       question: 'Comment bénéficier du tarif étudiant ?',
-      answer: 'Vous devez fournir un justificatif étudiant valide (carte étudiante, certificat de scolarité ou attestation d\'inscription) lors de votre inscription. La vérification se fait manuellement sous 24h.'
+      answer:
+        "Vous devez fournir un justificatif étudiant valide (carte étudiante, certificat de scolarité ou attestation d'inscription) lors de votre inscription. La vérification se fait manuellement sous 24h.",
     },
     {
       question: 'Quels justificatifs étudiants sont acceptés ?',
-      answer: 'Carte étudiante en cours de validité, certificat de scolarité de l\'année en cours, attestation d\'inscription universitaire, ou carte CROUS. Le document doit clairement indiquer votre statut étudiant actuel.'
+      answer:
+        "Carte étudiante en cours de validité, certificat de scolarité de l'année en cours, attestation d'inscription universitaire, ou carte CROUS. Le document doit clairement indiquer votre statut étudiant actuel.",
     },
     {
-      question: 'Que se passe-t-il après les 30 jours d\'essai ?',
-      answer: 'Vous recevez un email de rappel 5 jours avant la fin. Vous pouvez alors choisir votre plan ou laisser votre compte passer en mode lecture seule (accès en consultation pendant 30 jours supplémentaires).'
+      question: "Que se passe-t-il après les 30 jours d'essai ?",
+      answer:
+        'Vous recevez un email de rappel 5 jours avant la fin. Vous pouvez alors choisir votre plan ou laisser votre compte passer en mode lecture seule (accès en consultation pendant 30 jours supplémentaires).',
     },
     {
       question: 'Puis-je changer de plan à tout moment ?',
-      answer: 'Oui ! Vous pouvez passer du plan étudiant au plan professionnel instantanément. Le passage inverse nécessite une re-vérification de votre statut étudiant.'
+      answer:
+        'Oui ! Vous pouvez passer du plan étudiant au plan professionnel instantanément. Le passage inverse nécessite une re-vérification de votre statut étudiant.',
     },
     {
       question: 'Y a-t-il un engagement minimum ?',
-      answer: 'Aucun engagement ! Vous pouvez annuler votre abonnement à tout moment depuis votre tableau de bord. L\'annulation prend effet à la fin de la période payée.'
+      answer:
+        "Aucun engagement ! Vous pouvez annuler votre abonnement à tout moment depuis votre tableau de bord. L'annulation prend effet à la fin de la période payée.",
     },
     {
       question: 'Les tarifs incluent-ils la TVA ?',
-      answer: 'Oui, tous les prix affichés sont TTC (TVA française incluse). Aucun coût supplémentaire ne sera ajouté lors du paiement.'
-    }
-  ]
+      answer:
+        'Oui, tous les prix affichés sont TTC (TVA française incluse). Aucun coût supplémentaire ne sera ajouté lors du paiement.',
+    },
+  ];
 
   const comparison = [
     { feature: 'Suivi des candidatures', free: true, student: true, pro: true },
     { feature: 'Gestion des entretiens', free: true, student: true, pro: true },
-    { feature: 'Stockage documents', free: '1 GB', student: 'Illimité', pro: 'Illimité' },
-    { feature: 'Statistiques', free: 'Basiques', student: 'Avancées', pro: 'Complètes + IA' },
+    {
+      feature: 'Stockage documents',
+      free: '1 GB',
+      student: 'Illimité',
+      pro: 'Illimité',
+    },
+    {
+      feature: 'Statistiques',
+      free: 'Basiques',
+      student: 'Avancées',
+      pro: 'Complètes + IA',
+    },
     { feature: 'Templates CV', free: false, student: true, pro: true },
     { feature: 'Formation emploi', free: false, student: true, pro: true },
-    { feature: 'Analyses sectorielles', free: false, student: false, pro: true },
+    {
+      feature: 'Analyses sectorielles',
+      free: false,
+      student: false,
+      pro: true,
+    },
     { feature: 'Benchmarks salariaux', free: false, student: false, pro: true },
-    { feature: 'Simulation entretiens IA', free: false, student: false, pro: true },
-    { feature: 'Support', free: 'Email', student: 'Email prioritaire', pro: 'Email + Téléphone' },
-    { feature: 'Conseiller carrière', free: false, student: false, pro: 'Sur demande' }
-  ]
+    {
+      feature: 'Simulation entretiens IA',
+      free: false,
+      student: false,
+      pro: true,
+    },
+    {
+      feature: 'Support',
+      free: 'Email',
+      student: 'Email prioritaire',
+      pro: 'Email + Téléphone',
+    },
+    {
+      feature: 'Conseiller carrière',
+      free: false,
+      student: false,
+      pro: 'Sur demande',
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-        <LandingHeader applicationName={applicationName} />
+      <LandingHeader applicationName={applicationName} />
       {/* Hero Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <Badge variant="outline" className="mb-6 bg-blue-50 text-blue-700 border-blue-200">
+          <Badge
+            variant="outline"
+            className="mb-6 bg-blue-50 text-blue-700 border-blue-200"
+          >
             <Gift className="w-4 h-4 mr-2" />
             30 jours d&apos;essai gratuit • Sans engagement
           </Badge>
-          
+
           <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Des tarifs adaptés à
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-              {' '}votre profil
+              {' '}
+              votre profil
             </span>
           </h1>
-          
+
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Commencez avec 30 jours d&apos;essai gratuit complet, puis choisissez le plan qui correspond 
-            à votre situation : étudiant ou professionnel.
+            Commencez avec 30 jours d&apos;essai gratuit complet, puis
+            choisissez le plan qui correspond à votre situation : étudiant ou
+            professionnel.
           </p>
         </div>
       </section>
@@ -184,10 +234,17 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
-              <Card key={index} className={`relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 ${plan.highlight ? 'ring-2 ring-blue-500 scale-105' : ''}`}>
+              <Card
+                key={index}
+                className={`relative p-8 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 ${
+                  plan.highlight ? 'ring-2 ring-blue-500 scale-105' : ''
+                }`}
+              >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className={`${plan.badge.color} text-white px-4 py-1 text-sm font-medium`}>
+                    <Badge
+                      className={`${plan.badge.color} text-white px-4 py-1 text-sm font-medium`}
+                    >
                       <Star className="w-4 h-4 mr-1" />
                       {plan.badge.text}
                     </Badge>
@@ -198,11 +255,17 @@ export default function PricingPage() {
                   <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
                     <plan.icon className="w-8 h-8 text-blue-600" />
                   </div>
-                  
-                  <CardTitle className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</CardTitle>
+
+                  <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
+                    {plan.name}
+                  </CardTitle>
                   <div className="mb-4">
-                    <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-500 ml-2">/ {plan.duration}</span>
+                    <span className="text-5xl font-bold text-gray-900">
+                      {plan.price}
+                    </span>
+                    <span className="text-gray-500 ml-2">
+                      / {plan.duration}
+                    </span>
                   </div>
                   <p className="text-gray-600">{plan.description}</p>
                 </CardHeader>
@@ -219,10 +282,15 @@ export default function PricingPage() {
 
                   {plan.limitations && (
                     <div className="mb-6 p-4 bg-orange-50 rounded-lg border border-orange-200">
-                      <h4 className="font-medium text-orange-800 mb-2">Limitations :</h4>
+                      <h4 className="font-medium text-orange-800 mb-2">
+                        Limitations :
+                      </h4>
                       <ul className="space-y-1">
                         {plan.limitations.map((limitation, limitIndex) => (
-                          <li key={limitIndex} className="text-sm text-orange-700 flex items-center gap-2">
+                          <li
+                            key={limitIndex}
+                            className="text-sm text-orange-700 flex items-center gap-2"
+                          >
                             <div className="w-1.5 h-1.5 rounded-full bg-orange-400"></div>
                             {limitation}
                           </li>
@@ -239,7 +307,10 @@ export default function PricingPage() {
                       </h4>
                       <ul className="space-y-1">
                         {plan.requirements.map((req, reqIndex) => (
-                          <li key={reqIndex} className="text-sm text-blue-700 flex items-center gap-2">
+                          <li
+                            key={reqIndex}
+                            className="text-sm text-blue-700 flex items-center gap-2"
+                          >
                             <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
                             {req}
                           </li>
@@ -248,8 +319,8 @@ export default function PricingPage() {
                     </div>
                   )}
 
-                  <Button 
-                    asChild 
+                  <Button
+                    asChild
                     className={`w-full ${plan.ctaClass}`}
                     size="lg"
                   >
@@ -282,16 +353,29 @@ export default function PricingPage() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b-2 border-gray-200">
-                    <th className="text-left py-4 px-6 font-semibold text-gray-900">Fonctionnalité</th>
-                    <th className="text-center py-4 px-6 font-semibold text-gray-900">Essai Gratuit</th>
-                    <th className="text-center py-4 px-6 font-semibold text-blue-600">Plan Étudiant</th>
-                    <th className="text-center py-4 px-6 font-semibold text-purple-600">Plan Pro</th>
+                    <th className="text-left py-4 px-6 font-semibold text-gray-900">
+                      Fonctionnalité
+                    </th>
+                    <th className="text-center py-4 px-6 font-semibold text-gray-900">
+                      Essai Gratuit
+                    </th>
+                    <th className="text-center py-4 px-6 font-semibold text-blue-600">
+                      Plan Étudiant
+                    </th>
+                    <th className="text-center py-4 px-6 font-semibold text-purple-600">
+                      Plan Pro
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {comparison.map((item, index) => (
-                    <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-4 px-6 font-medium text-gray-900">{item.feature}</td>
+                    <tr
+                      key={index}
+                      className="border-b border-gray-100 hover:bg-gray-50"
+                    >
+                      <td className="py-4 px-6 font-medium text-gray-900">
+                        {item.feature}
+                      </td>
                       <td className="py-4 px-6 text-center">
                         {typeof item.free === 'boolean' ? (
                           item.free ? (
@@ -300,7 +384,9 @@ export default function PricingPage() {
                             <div className="w-5 h-5 mx-auto rounded-full bg-gray-200"></div>
                           )
                         ) : (
-                          <span className="text-gray-600 text-sm">{item.free}</span>
+                          <span className="text-gray-600 text-sm">
+                            {item.free}
+                          </span>
                         )}
                       </td>
                       <td className="py-4 px-6 text-center">
@@ -311,7 +397,9 @@ export default function PricingPage() {
                             <div className="w-5 h-5 mx-auto rounded-full bg-gray-200"></div>
                           )
                         ) : (
-                          <span className="text-blue-600 text-sm font-medium">{item.student}</span>
+                          <span className="text-blue-600 text-sm font-medium">
+                            {item.student}
+                          </span>
                         )}
                       </td>
                       <td className="py-4 px-6 text-center">
@@ -322,7 +410,9 @@ export default function PricingPage() {
                             <div className="w-5 h-5 mx-auto rounded-full bg-gray-200"></div>
                           )
                         ) : (
-                          <span className="text-purple-600 text-sm font-medium">{item.pro}</span>
+                          <span className="text-purple-600 text-sm font-medium">
+                            {item.pro}
+                          </span>
                         )}
                       </td>
                     </tr>
@@ -343,7 +433,8 @@ export default function PricingPage() {
               Comment obtenir le tarif étudiant ?
             </h2>
             <p className="text-gray-600">
-              Processus simple et rapide pour bénéficier de la réduction étudiante
+              Processus simple et rapide pour bénéficier de la réduction
+              étudiante
             </p>
           </div>
 
@@ -352,9 +443,12 @@ export default function PricingPage() {
               <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
                 <span className="text-blue-600 font-bold text-lg">1</span>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Inscrivez-vous</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Inscrivez-vous
+              </h3>
               <p className="text-gray-600 text-sm">
-                Créez votre compte et sélectionnez &quot;Plan Étudiant&quot; lors de l&apos;inscription
+                Créez votre compte et sélectionnez &quot;Plan Étudiant&quot;
+                lors de l&apos;inscription
               </p>
             </Card>
 
@@ -362,9 +456,12 @@ export default function PricingPage() {
               <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
                 <Upload className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Uploadez votre justificatif</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Uploadez votre justificatif
+              </h3>
               <p className="text-gray-600 text-sm">
-                Carte étudiante, certificat de scolarité ou attestation d&apos;inscription
+                Carte étudiante, certificat de scolarité ou attestation
+                d&apos;inscription
               </p>
             </Card>
 
@@ -372,9 +469,12 @@ export default function PricingPage() {
               <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
                 <Check className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Validation sous 24h</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Validation sous 24h
+              </h3>
               <p className="text-gray-600 text-sm">
-                Vérification manuelle et activation automatique de votre réduction
+                Vérification manuelle et activation automatique de votre
+                réduction
               </p>
             </Card>
           </div>
@@ -382,8 +482,9 @@ export default function PricingPage() {
           <Alert className="mt-8 border-blue-200 bg-blue-50">
             <Shield className="h-4 w-4 text-blue-600" />
             <AlertDescription className="text-blue-800">
-              <strong>Confidentialité garantie :</strong> Vos documents sont uniquement utilisés pour la vérification 
-              et supprimés après validation. Conformité RGPD complète.
+              <strong>Confidentialité garantie :</strong> Vos documents sont
+              uniquement utilisés pour la vérification et supprimés après
+              validation. Conformité RGPD complète.
             </AlertDescription>
           </Alert>
         </div>
@@ -409,8 +510,12 @@ export default function PricingPage() {
                     <HelpCircle className="w-4 h-4 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{faq.question}</h3>
-                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {faq.question}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </div>
                 </div>
               </Card>
@@ -427,19 +532,29 @@ export default function PricingPage() {
             Commencez dès aujourd&apos;hui !
           </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            30 jours d&apos;essai gratuit complet, puis choisissez le plan adapté à votre profil. 
-            Aucune carte bancaire requise pour commencer.
+            30 jours d&apos;essai gratuit complet, puis choisissez le plan
+            adapté à votre profil. Aucune carte bancaire requise pour commencer.
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <Button asChild size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-blue-50">
+            <Button
+              asChild
+              size="lg"
+              variant="secondary"
+              className="bg-white text-blue-600 hover:bg-blue-50"
+            >
               <Link href="/register">
                 <Gift className="w-5 h-5 mr-2" />
                 Essai gratuit 30 jours
               </Link>
             </Button>
-            
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600">
+
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white hover:text-blue-600"
+            >
               <Link href="/features">
                 <Sparkles className="w-5 h-5 mr-2" />
                 Voir les fonctionnalités
@@ -466,5 +581,5 @@ export default function PricingPage() {
 
       <LandingFooter applicationName={applicationName} />
     </div>
-  )
+  );
 }

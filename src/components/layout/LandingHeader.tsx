@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +8,9 @@ interface HeaderProps {
   applicationName?: string;
 }
 
-export const LandingHeader: React.FC<HeaderProps> = ({ applicationName = 'JobTracker' }) => {
+export const LandingHeader: React.FC<HeaderProps> = ({
+  applicationName = 'Candi Tracker',
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -79,8 +81,18 @@ export const LandingHeader: React.FC<HeaderProps> = ({ applicationName = 'JobTra
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </button>
 
@@ -103,7 +115,7 @@ export const LandingHeader: React.FC<HeaderProps> = ({ applicationName = 'JobTra
         {isMenuOpen && (
           <div className="md:hidden border-t border-slate-200/50 dark:border-slate-700/50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl">
             <div className="px-4 py-4 space-y-3">
-            <Link
+              <Link
                 href="/"
                 className="block text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
