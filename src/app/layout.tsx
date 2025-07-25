@@ -186,7 +186,7 @@ export default function RootLayout({
     <html 
       lang="fr" 
       suppressHydrationWarning 
-      className={inter.variable}
+      className={inter.className}
     >
       <head>
         {/* Preconnections importantes pour la performance */}
@@ -196,15 +196,6 @@ export default function RootLayout({
         {/* DNS prefetch pour domaines externes */}
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        
-        {/* Preload des ressources critiques */}
-        <link
-          rel="preload"
-          href="/fonts/inter-var.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin=""
-        />
         
         {/* Icônes et manifeste */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
