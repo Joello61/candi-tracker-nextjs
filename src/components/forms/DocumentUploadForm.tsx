@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -60,8 +60,11 @@ const formatFileSize = (bytes: number): string => {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
 };
 
-// Fonction utilitaire pour créer une FileList à partir d'un tableau de File
-const createFileList = (files: File[]): FileList => {
+// Fonction utilitaire pour créer une FileList à partir d'un tableau de File (seulement côté client)
+const createFileList = (files: File[]): FileList | null => {
+  if (typeof window === 'undefined' || !window.DataTransfer) {
+    return null;
+  }
   const dt = new DataTransfer();
   files.forEach(file => dt.items.add(file));
   return dt.files;
@@ -77,9 +80,15 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [isDragOver, setIsDragOver] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   // Hook pour l'upload
   const uploadDocuments = useUploadDocuments();
+
+  // S'assurer que le composant est monté côté client
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const {
     register,
@@ -99,7 +108,7 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
   });
 
   const handleFileSelect = (files: FileList | null) => {
-    if (!files) return;
+    if (!files || !isMounted) return;
     
     const newFiles = Array.from(files);
     const validFiles = newFiles.filter(file => {
@@ -123,28 +132,32 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
     const updatedFiles = [...selectedFiles, ...validFiles].slice(0, 5); // Max 5 fichiers
     setSelectedFiles(updatedFiles);
     
-    // Mettre à jour la FileList dans le formulaire
-    const fileList = createFileList(updatedFiles);
-    setValue('files', fileList);
-    
-    // Déclencher la validation
-    trigger('files');
+    // Mettre à jour la FileList dans le formulaire seulement si c'est possible
+    if (isMounted && typeof window !== 'undefined') {
+      const fileList = createFileList(updatedFiles);
+      if (fileList) {
+        setValue('files', fileList);
+        // Déclencher la validation
+        trigger('files');
+      }
+    }
   };
 
   const removeFile = (index: number) => {
+    if (!isMounted) return;
+    
     const updatedFiles = selectedFiles.filter((_, i) => i !== index);
     setSelectedFiles(updatedFiles);
     
-    // Mettre à jour la FileList dans le formulaire
-    if (updatedFiles.length > 0) {
-      const fileList = createFileList(updatedFiles);
-      setValue('files', fileList);
-    } else {
-      setValue('files', createFileList([]));
+    // Mettre à jour la FileList dans le formulaire seulement si c'est possible
+    if (typeof window !== 'undefined') {
+      const fileList = updatedFiles.length > 0 ? createFileList(updatedFiles) : createFileList([]);
+      if (fileList) {
+        setValue('files', fileList);
+        // Déclencher la validation
+        trigger('files');
+      }
     }
-    
-    // Déclencher la validation
-    trigger('files');
   };
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -164,9 +177,18 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
   };
 
   const onSubmit = async (data: UploadDocumentFormData) => {
+    if (!isMounted) return;
+    
     try {
+      // Créer une FileList à partir des fichiers sélectionnés
+      let fileList: FileList | null = null;
+      
+      if (selectedFiles.length > 0 && typeof window !== 'undefined') {
+        fileList = createFileList(selectedFiles);
+      }
+      
       // Vérifier que les fichiers sont présents
-      if (!data.files || data.files.length === 0) {
+      if (!fileList || fileList.length === 0) {
         throw new Error('Aucun fichier sélectionné');
       }
 
@@ -181,7 +203,7 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
 
       // Appel au hook pour uploader
       await uploadDocuments.mutateAsync({
-        files: data.files,
+        files: fileList,
         applicationId: data.applicationId,
         options: Object.keys(options).length > 0 ? options : undefined,
       });
@@ -206,6 +228,28 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
   // Calculer l'état de chargement
   const isUploading = uploadDocuments.isPending;
   const uploadProgress = isUploading ? 85 : 0; // Simulation du progrès
+
+  // Ne pas afficher le composant avant qu'il soit monté côté client
+  if (!isMounted) {
+    return (
+      <Card className={className}>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <Upload className="h-5 w-5" />
+            <span>Upload de documents</span>
+          </CardTitle>
+          <CardDescription>
+            Chargement...
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-center h-64">
+            <Loader2 className="h-8 w-8 animate-spin" />
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card className={className}>
