@@ -3,6 +3,26 @@
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { Home, ArrowLeft } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const notFoundMetadata: Metadata = {
+  title: 'Page introuvable - 404',
+  description: 'La page que vous recherchez n\'existe pas ou a été déplacée. Retournez à votre tableau de bord Candi Tracker pour continuer votre suivi de candidatures.',
+  keywords: [
+    'page introuvable',
+    '404',
+    'not found',
+    'page inexistante',
+    'erreur 404',
+    'lien cassé'
+  ],
+  robots: 'noindex, nofollow',
+  openGraph: {
+    title: 'Page introuvable | Candi Tracker',
+    description: 'Cette page n\'existe pas. Retournez à votre espace personnel pour gérer vos candidatures.',
+    images: [{ url: '/og-error.jpg', width: 1200, height: 630 }],
+  }
+}
 
 export const NotFoundPage: React.FC = () => {
   const navigate = useRouter();

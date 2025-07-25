@@ -5,6 +5,27 @@ import { ArrowLeft, Shield, Mail, MapPin, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { Metadata } from 'next';
+
+export const privacyPolicyMetadata: Metadata = {
+  title: 'Politique de confidentialité',
+  description: 'Découvrez comment Candi Tracker protège vos données personnelles et respecte votre vie privée. Notre engagement transparent envers la sécurité de vos informations.',
+  keywords: [
+    'politique confidentialité',
+    'protection données',
+    'vie privée',
+    'RGPD',
+    'sécurité données',
+    'privacy policy',
+    'confidentialité utilisateur',
+    'données personnelles'
+  ],
+  openGraph: {
+    title: 'Politique de confidentialité | Candi Tracker',
+    description: 'Notre engagement pour la protection de vos données personnelles et le respect de votre vie privée.',
+    images: [{ url: '/og-legal.jpg', width: 1200, height: 630 }],
+  }
+}
 
 export const PrivacyPolicyPage: React.FC = () => {
   const scrollToSection = (sectionId: string) => {

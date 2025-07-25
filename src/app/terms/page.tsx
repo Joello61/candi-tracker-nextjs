@@ -4,7 +4,28 @@ import React from 'react';
 import { ArrowLeft, Scale, Shield, AlertTriangle, FileText, CheckCircle, XCircle, Euro, Info, Gavel } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+export const termsOfUseMetadata: Metadata = {
+  title: 'Conditions d\'utilisation',
+  description: 'Consultez les conditions générales d\'utilisation de Candi Tracker. Droits, obligations et règles d\'usage de notre plateforme de suivi de candidatures.',
+  keywords: [
+    'conditions utilisation',
+    'CGU',
+    'terms of use',
+    'conditions générales',
+    'règles utilisation',
+    'accord utilisateur',
+    'conditions service',
+    'légal'
+  ],
+  openGraph: {
+    title: 'Conditions d\'utilisation | Candi Tracker',
+    description: 'Les règles et conditions qui régissent l\'utilisation de notre plateforme de suivi de candidatures.',
+    images: [{ url: '/og-legal.jpg', width: 1200, height: 630 }],
+  }
+}
 import { Badge } from '@/components/ui/badge';
+import { Metadata } from 'next';
 
 export const TermsOfUsePage: React.FC = () => {
 

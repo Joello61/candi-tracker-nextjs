@@ -3,6 +3,26 @@
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { AlertTriangle, Home, RotateCcw } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const errorMetadata: Metadata = {
+  title: 'Erreur - Une erreur s\'est produite',
+  description: 'Une erreur inattendue s\'est produite sur Candi Tracker. Notre équipe technique a été informée et travaille à résoudre le problème rapidement.',
+  keywords: [
+    'erreur',
+    'problème technique',
+    'error page',
+    'incident',
+    'maintenance',
+    'problème serveur'
+  ],
+  robots: 'noindex, nofollow',
+  openGraph: {
+    title: 'Erreur technique | Candi Tracker',
+    description: 'Une erreur temporaire empêche l\'accès à cette page. Nous travaillons à la résoudre.',
+    images: [{ url: '/og-error.jpg', width: 1200, height: 630 }],
+  }
+}
 
 export default function ErrorPage({
   error,
