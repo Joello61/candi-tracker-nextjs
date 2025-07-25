@@ -1,12 +1,17 @@
+// src/utils/documentSchemas.ts
 import { z } from 'zod';
 import { DocumentType } from '@/types';
 
-// Schéma pour l'upload de documents
-export const uploadDocumentSchema = z.object({
-  applicationId: z
-    .string()
-    .min(1, 'L\'ID de la candidature est requis'),
-  files: z
+// Fonction helper pour créer le schéma FileList seulement côté client
+const createFileListSchema = () => {
+  if (typeof window === 'undefined') {
+    // Côté serveur : schéma générique
+    return z.any()
+      .refine(() => true, 'Validation côté serveur non disponible');
+  }
+  
+  // Côté client : validation complète
+  return z
     .instanceof(FileList)
     .refine(files => files.length > 0, 'Au moins un fichier est requis')
     .refine(files => files.length <= 5, 'Maximum 5 fichiers autorisés')
@@ -30,7 +35,15 @@ export const uploadDocumentSchema = z.object({
         return allowedTypes.includes(file.type);
       }),
       'Types de fichiers non autorisés. Formats acceptés: PDF, Word, TXT, images, ZIP'
-    ),
+    );
+};
+
+// Schéma pour l'upload de documents
+export const uploadDocumentSchema = z.object({
+  applicationId: z
+    .string()
+    .min(1, 'L\'ID de la candidature est requis'),
+  files: z.lazy(() => createFileListSchema()),
   name: z
     .string()
     .max(100, 'Le nom ne peut pas dépasser 100 caractères')

@@ -1,14 +1,26 @@
-'use client'
+'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { FieldError, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 
@@ -25,7 +37,10 @@ import {
 
 import { DocumentType } from '@/types';
 import { cn } from '@/lib/utils';
-import { uploadDocumentSchema, type UploadDocumentFormData } from '@/utils/documentSchemas';
+import {
+  uploadDocumentSchema,
+  type UploadDocumentFormData,
+} from '@/utils/documentSchemas';
 import { useUploadDocuments } from '@/hooks/useDocuments';
 
 interface DocumentUploadFormProps {
@@ -47,7 +62,8 @@ const typeOptions = [
 
 const getFileIcon = (type: string) => {
   if (type.startsWith('image/')) return Image;
-  if (type.includes('pdf') || type.includes('word') || type.includes('text')) return FileText;
+  if (type.includes('pdf') || type.includes('word') || type.includes('text'))
+    return FileText;
   if (type.includes('zip')) return Archive;
   return File;
 };
@@ -66,7 +82,7 @@ const createFileList = (files: File[]): FileList | null => {
     return null;
   }
   const dt = new DataTransfer();
-  files.forEach(file => dt.items.add(file));
+  files.forEach((file) => dt.items.add(file));
   return dt.files;
 };
 
@@ -109,9 +125,9 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
 
   const handleFileSelect = (files: FileList | null) => {
     if (!files || !isMounted) return;
-    
+
     const newFiles = Array.from(files);
-    const validFiles = newFiles.filter(file => {
+    const validFiles = newFiles.filter((file) => {
       // Vérifications côté client basiques
       const maxSize = 10 * 1024 * 1024; // 10MB
       const allowedTypes = [
@@ -123,15 +139,15 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
         'image/png',
         'image/gif',
         'application/zip',
-        'application/x-zip-compressed'
+        'application/x-zip-compressed',
       ];
-      
+
       return file.size <= maxSize && allowedTypes.includes(file.type);
     });
 
     const updatedFiles = [...selectedFiles, ...validFiles].slice(0, 5); // Max 5 fichiers
     setSelectedFiles(updatedFiles);
-    
+
     // Mettre à jour la FileList dans le formulaire seulement si c'est possible
     if (isMounted && typeof window !== 'undefined') {
       const fileList = createFileList(updatedFiles);
@@ -145,13 +161,16 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
 
   const removeFile = (index: number) => {
     if (!isMounted) return;
-    
+
     const updatedFiles = selectedFiles.filter((_, i) => i !== index);
     setSelectedFiles(updatedFiles);
-    
+
     // Mettre à jour la FileList dans le formulaire seulement si c'est possible
     if (typeof window !== 'undefined') {
-      const fileList = updatedFiles.length > 0 ? createFileList(updatedFiles) : createFileList([]);
+      const fileList =
+        updatedFiles.length > 0
+          ? createFileList(updatedFiles)
+          : createFileList([]);
       if (fileList) {
         setValue('files', fileList);
         // Déclencher la validation
@@ -178,15 +197,15 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
 
   const onSubmit = async (data: UploadDocumentFormData) => {
     if (!isMounted) return;
-    
+
     try {
       // Créer une FileList à partir des fichiers sélectionnés
       let fileList: FileList | null = null;
-      
+
       if (selectedFiles.length > 0 && typeof window !== 'undefined') {
         fileList = createFileList(selectedFiles);
       }
-      
+
       // Vérifier que les fichiers sont présents
       if (!fileList || fileList.length === 0) {
         throw new Error('Aucun fichier sélectionné');
@@ -218,9 +237,8 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
 
       // Callback de succès
       onSuccess?.();
-      
     } catch (error) {
-      console.error('Erreur lors de l\'upload:', error);
+      console.error("Erreur lors de l'upload:", error);
       // L'erreur est déjà gérée par le hook (toast)
     }
   };
@@ -238,9 +256,7 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
             <Upload className="h-5 w-5" />
             <span>Upload de documents</span>
           </CardTitle>
-          <CardDescription>
-            Chargement...
-          </CardDescription>
+          <CardDescription>Chargement...</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-center h-64">
@@ -262,7 +278,7 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
           Ajoutez des documents à votre candidature (PDF, Word, images, etc.)
         </CardDescription>
       </CardHeader>
-      
+
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Sélection de candidature */}
@@ -286,7 +302,9 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
                 </SelectContent>
               </Select>
               {errors.applicationId && (
-                <p className="text-sm text-red-500">{errors.applicationId.message}</p>
+                <p className="text-sm text-red-500">
+                  {errors.applicationId.message}
+                </p>
               )}
             </div>
           )}
@@ -294,10 +312,10 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
           {/* Zone de drop */}
           <div
             className={cn(
-              "border-2 border-dashed rounded-lg p-8 text-center transition-colors",
-              isDragOver ? "border-blue-500 bg-blue-50" : "border-gray-300",
-              selectedFiles.length > 0 && "border-green-500 bg-green-50",
-              isUploading && "opacity-50 cursor-not-allowed"
+              'border-2 border-dashed rounded-lg p-8 text-center transition-colors',
+              isDragOver ? 'border-blue-500 bg-blue-50' : 'border-gray-300',
+              selectedFiles.length > 0 && 'border-green-500 bg-green-50',
+              isUploading && 'opacity-50 cursor-not-allowed'
             )}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
@@ -325,7 +343,9 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
               <>
                 <CheckCircle className="mx-auto h-12 w-12 text-green-500 mb-4" />
                 <h3 className="text-lg font-medium text-gray-900 mb-2">
-                  {selectedFiles.length} fichier{selectedFiles.length > 1 ? 's' : ''} sélectionné{selectedFiles.length > 1 ? 's' : ''}
+                  {selectedFiles.length} fichier
+                  {selectedFiles.length > 1 ? 's' : ''} sélectionné
+                  {selectedFiles.length > 1 ? 's' : ''}
                 </h3>
                 <Button
                   type="button"
@@ -357,7 +377,10 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
                 {selectedFiles.map((file, index) => {
                   const FileIcon = getFileIcon(file.type);
                   return (
-                    <div key={index} className="flex items-center space-x-3 p-3 border rounded-lg">
+                    <div
+                      key={index}
+                      className="flex items-center space-x-3 p-3 border rounded-lg"
+                    >
                       <FileIcon className="h-8 w-8 text-gray-400" />
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate">
@@ -384,7 +407,10 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
                 })}
               </div>
               {errors.files && (
-                <p className="text-sm text-red-500">{errors.files.message}</p>
+                <p className="text-sm text-red-500">
+                  {(errors.files as FieldError)?.message ||
+                    'Erreur de validation des fichiers'}
+                </p>
               )}
             </div>
           )}
@@ -408,7 +434,12 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
               <Label>Type de document</Label>
               <Select
                 value={watch('type') || 'auto'}
-                onValueChange={(value) => setValue('type', value === 'auto' ? undefined : value as DocumentType)}
+                onValueChange={(value) =>
+                  setValue(
+                    'type',
+                    value === 'auto' ? undefined : (value as DocumentType)
+                  )
+                }
                 disabled={isUploading}
               >
                 <SelectTrigger>
@@ -440,7 +471,8 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
           {uploadDocuments.isError && (
             <div className="bg-red-50 border border-red-200 rounded-md p-3">
               <p className="text-sm text-red-700">
-                {uploadDocuments.error?.message || 'Erreur lors de l\'upload des documents'}
+                {uploadDocuments.error?.message ||
+                  "Erreur lors de l'upload des documents"}
               </p>
             </div>
           )}
@@ -448,16 +480,25 @@ export const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({
           {/* Actions */}
           <div className="flex justify-end space-x-2">
             {onCancel && (
-              <Button type="button" variant="outline" onClick={onCancel} disabled={isUploading}>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={onCancel}
+                disabled={isUploading}
+              >
                 Annuler
               </Button>
             )}
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               disabled={selectedFiles.length === 0 || isUploading}
             >
               {isUploading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {isUploading ? 'Upload en cours...' : `Uploader ${selectedFiles.length} fichier${selectedFiles.length > 1 ? 's' : ''}`}
+              {isUploading
+                ? 'Upload en cours...'
+                : `Uploader ${selectedFiles.length} fichier${
+                    selectedFiles.length > 1 ? 's' : ''
+                  }`}
             </Button>
           </div>
         </form>
