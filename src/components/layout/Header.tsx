@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
   const handleLogout = () => {
     logout();
-    window.location.href = '/home';
+    window.location.href = '/';
   };
 
   const getInitials = (name: string) => {

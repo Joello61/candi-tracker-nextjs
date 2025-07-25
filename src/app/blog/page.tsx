@@ -11,6 +11,8 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
+import { LandingHeader } from '@/components/layout/LandingHeader'
+import { LandingFooter } from '@/components/layout/LandingFooter'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -33,6 +35,9 @@ export const metadata: Metadata = {
 }
 
 export default function BlogPage() {
+
+    const applicationName = process.env.NEXT_PUBLIC_APP_NAME || 'JobTracker';
+
   // Articles fictifs - à remplacer par vos vraies données
   const featuredArticle = {
     id: 'guide-complet-recherche-emploi-2025',
@@ -155,6 +160,7 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+        <LandingHeader applicationName={applicationName} />
       {/* Hero Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
@@ -488,6 +494,8 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+
+      <LandingFooter applicationName={applicationName} />
     </div>
   )
 }

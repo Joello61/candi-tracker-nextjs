@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import { LandingHeader } from '@/components/layout/LandingHeader'
+import { LandingFooter } from '@/components/layout/LandingFooter'
 
 export const metadata: Metadata = {
   title: 'Tarifs',
@@ -30,6 +32,9 @@ export const metadata: Metadata = {
 }
 
 export default function PricingPage() {
+
+    const applicationName = process.env.NEXT_PUBLIC_APP_NAME || 'JobTracker';
+
   const plans = [
     {
       name: 'Essai Gratuit',
@@ -58,7 +63,7 @@ export default function PricingPage() {
     },
     {
       name: 'Plan Étudiant',
-      price: '7.99€',
+      price: '5.99€',
       duration: 'par mois',
       description: 'Tarif préférentiel pour étudiants avec justificatif',
       badge: { text: 'Populaire', color: 'bg-blue-500' },
@@ -85,7 +90,7 @@ export default function PricingPage() {
     },
     {
       name: 'Plan Professionnel',
-      price: '14.99€',
+      price: '12.99€',
       duration: 'par mois',
       description: 'Solution complète pour professionnels en recherche active',
       badge: { text: 'Complet', color: 'bg-purple-500' },
@@ -151,6 +156,7 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+        <LandingHeader applicationName={applicationName} />
       {/* Hero Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
@@ -457,6 +463,8 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+
+      <LandingFooter applicationName={applicationName} />
     </div>
   )
 }

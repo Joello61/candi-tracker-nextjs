@@ -4,6 +4,8 @@ import { Github, Linkedin, Mail, MapPin, GraduationCap, Code, Heart, Users, Targ
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { LandingHeader } from '@/components/layout/LandingHeader'
+import { LandingFooter } from '@/components/layout/LandingFooter'
 
 export const metadata: Metadata = {
   title: 'À propos',
@@ -24,6 +26,9 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
+
+    const applicationName = process.env.NEXT_PUBLIC_APP_NAME || 'JobTracker';
+
   const technologies = [
     'Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS v4',
     'Node.js', 'PostgreSQL', 'Prisma', 'React Query',
@@ -39,6 +44,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+        <LandingHeader applicationName={applicationName} />
       {/* Hero Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto">
@@ -301,6 +307,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <LandingFooter applicationName={applicationName} />
     </div>
   )
 }

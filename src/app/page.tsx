@@ -1,3 +1,5 @@
+import { LandingFooter } from '@/components/layout/LandingFooter';
+import { LandingHeader } from '@/components/layout/LandingHeader';
 import {
   ArrowRight,
   BarChart3,
@@ -5,15 +7,14 @@ import {
   FileText,
   Bell,
   Shield,
-  Zap,
   Target,
   TrendingUp,
 } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export const HomePage: React.FC = () => {
   const applicationName = process.env.NEXT_PUBLIC_APP_NAME || 'JobTracker';
+  
   const features = [
     {
       icon: <Target className="w-6 h-6" />,
@@ -61,44 +62,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      {/* Navigation */}
-      <nav className="relative z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-700/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="relative w-8 h-8 mr-3">
-                <Image
-                  src="/logo.png"
-                  alt="Candi Tracker"
-                  width={32}
-                  height={32}
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {applicationName}
-              </span>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              {/* ✅ Liens corrigés */}
-              <Link
-                href="/login"
-                className="px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-              >
-                Connexion
-              </Link>
-              <Link
-                href="/register"
-                className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Inscription
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <LandingHeader applicationName={applicationName} />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
@@ -138,7 +102,6 @@ export const HomePage: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              {/* ✅ Lien corrigé */}
               <Link
                 href="/register"
                 className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl text-lg font-semibold flex items-center space-x-2"
@@ -220,7 +183,6 @@ export const HomePage: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {/* ✅ Lien corrigé */}
             <Link
               href="/register"
               className="group px-8 py-4 bg-white text-slate-800 rounded-xl hover:bg-slate-50 transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg font-semibold flex items-center justify-center space-x-2"
@@ -236,35 +198,7 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold">{applicationName}</span>
-            </div>
-
-            <div className="flex space-x-6 text-sm text-slate-400">
-              <Link href="/privacy-policy" className="hover:text-white transition-colors">
-                Confidentialité
-              </Link>
-              <Link href="/terms" className="hover:text-white transition-colors">
-                Conditions
-              </Link>
-              <a href="#" className="hover:text-white transition-colors">
-                Support
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-8 pt-8 border-t border-slate-800 text-center text-slate-400">
-            <p>&copy; 2024 {applicationName}. Tous droits réservés.</p>
-          </div>
-        </div>
-      </footer>
+      <LandingFooter applicationName={applicationName} />
     </div>
   );
 };

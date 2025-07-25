@@ -198,7 +198,7 @@ export const OAuthCallbackPage: React.FC = () => {
                 </Button>
                 <Button 
                   variant="outline"
-                  onClick={() => navigate.push('/home')}
+                  onClick={() => navigate.push('/')}
                   className="w-full"
                 >
                   Retour à l&apos;accueil
