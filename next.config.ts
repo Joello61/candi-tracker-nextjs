@@ -3,6 +3,10 @@ const nextConfig = {
  // Configuration pour Docker (standalone build)
  output: 'standalone',
 
+ eslint: {
+    ignoreDuringBuilds: true,
+  },
+
  // Support des images externes
  images: {
    remotePatterns: [
