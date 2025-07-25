@@ -25,7 +25,7 @@ export const termsOfUseMetadata: Metadata = {
 import { Badge } from '@/components/ui/badge';
 import { Metadata } from 'next';
 
-export const TermsOfUsePage: React.FC = () => {
+export default function TermsOfUsePage () {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -1096,5 +1096,3 @@ export const TermsOfUsePage: React.FC = () => {
     </div>
   );
 };
-
-export default TermsOfUsePage;
