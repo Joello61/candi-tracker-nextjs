@@ -120,7 +120,7 @@ export const metadata: Metadata = {
   
   // Vérifications moteurs de recherche
   verification: {
-    google: 'your-google-verification-code', // ⚠️ À remplacer
+    google: 'BI9eXEI7JBV7o2y9WnfoEZF2u_IwmoyRMe2LTmzt7bw', 
     yandex: 'your-yandex-verification-code', // ⚠️ À remplacer (optionnel)
   },
   
