@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const HomePage: React.FC = () => {
+export default function HomePage() {
   const applicationName = process.env.NEXT_PUBLIC_APP_NAME || 'Candi Tracker';
 
   const features = [
@@ -242,6 +242,4 @@ export const HomePage: React.FC = () => {
       <LandingFooter applicationName={applicationName} />
     </div>
   );
-};
-
-export default HomePage;
+}
