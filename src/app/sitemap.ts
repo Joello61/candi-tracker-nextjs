@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://candi-tracker.com' // ⚠️ Remplacez par votre vraie URL
+  const baseUrl = 'https://candi-tracker.joeltech.dev'
   const currentDate = new Date()
 
   // Pages statiques principales

@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 
 // Métadonnées principales
 export const metadata: Metadata = {
-  metadataBase: new URL('https://candi-tracker.com'), // ⚠️ Remplacez par votre vraie URL
+  metadataBase: new URL('https://candi-tracker.joeltech.dev'),
   
   // Titres et descriptions
   title: {
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://candi-tracker.com',
+    url: 'https://candi-tracker.joeltech.dev',
     siteName: 'Candi Tracker',
     title: 'Candi Tracker - Suivi de candidatures d\'emploi intelligent',
     description: 'Plateforme complète pour optimiser votre recherche d\'emploi. Suivi des candidatures, gestion des entretiens, conseils personnalisés.',
@@ -106,10 +106,10 @@ export const metadata: Metadata = {
   
   // Liens alternatifs
   alternates: {
-    canonical: 'https://candi-tracker.com',
+    canonical: 'https://candi-tracker.joeltech.dev',
     languages: {
-      'fr-FR': 'https://candi-tracker.com',
-      'x-default': 'https://candi-tracker.com',
+      'fr-FR': 'https://candi-tracker.joeltech.dev',
+      'x-default': 'https://candi-tracker.joeltech.dev',
     },
     types: {
       'application/rss+xml': [
@@ -172,9 +172,9 @@ export const metadata: Metadata = {
   referrer: 'origin-when-cross-origin',
   
   // Archives et autres
-  archives: ['https://candi-tracker.com/blog'],
-  assets: ['https://candi-tracker.com'],
-  bookmarks: ['https://candi-tracker.com/features'],
+  archives: ['https://candi-tracker.joeltech.dev/blog'],
+  assets: ['https://candi-tracker.joeltech.dev'],
+  bookmarks: ['https://candi-tracker.joeltech.dev/features'],
 }
 
 export default function RootLayout({
@@ -211,7 +211,7 @@ export default function RootLayout({
         />
         
         {/* Canonical URL */}
-        <link rel="canonical" href="https://candi-tracker.com" />
+        <link rel="canonical" href="https://candi-tracker.joeltech.dev" />
         
         {/* JSON-LD Schema pour l'organisation */}
         <script
@@ -222,8 +222,8 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Candi Tracker",
               "description": "Plateforme de suivi et gestion de candidatures d'emploi",
-              "url": "https://candi-tracker.com",
-              "logo": "https://candi-tracker.com/logo.png",
+              "url": "https://candi-tracker.joeltech.dev",
+              "logo": "https://candi-tracker.joeltech.dev/logo.png",
               "foundingDate": "2024",
               "sameAs": [
                 "https://twitter.com/candidtracker",
@@ -233,7 +233,7 @@ export default function RootLayout({
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "Customer Service",
-                "email": "contact@candi-tracker.com",
+                "email": "contact@candi-tracker.joeltech.dev",
                 "availableLanguage": ["French", "English"]
               }
             })
@@ -249,7 +249,7 @@ export default function RootLayout({
               "@type": "WebApplication",
               "name": "Candi Tracker",
               "description": "Application web pour suivre et organiser vos candidatures d'emploi",
-              "url": "https://candi-tracker.com",
+              "url": "https://candi-tracker.joeltech.dev",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web Browser",
               "offers": {

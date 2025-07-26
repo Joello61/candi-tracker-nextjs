@@ -134,7 +134,7 @@ export async function GET(request: NextRequest) {
              }}
            >
              <span>🚀</span>
-             <span>candi-tracker.com</span>
+             <span>candi-tracker.joeltech.dev</span>
            </div>
          </div>
        </div>

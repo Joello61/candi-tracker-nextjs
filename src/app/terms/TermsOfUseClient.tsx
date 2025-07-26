@@ -781,7 +781,7 @@ export default function TermsOfUseClient () {
                   <p><strong>Intégrations tierces :</strong> Le Service peut intégrer des contenus ou technologies de tiers (Google, LinkedIn, etc.).</p>
                   <p><strong>Licences spécifiques :</strong> Ces éléments restent soumis aux licences de leurs propriétaires respectifs.</p>
                   <p><strong>Responsabilité limitée :</strong> La Société n&apos;est pas responsable des violations de droits par des contenus tiers.</p>
-                  <p><strong>Signalement :</strong> Toute violation présumée doit être signalée à legal@candi-tracker.com.</p>
+                  <p><strong>Signalement :</strong> Toute violation présumée doit être signalée à legal@candi-tracker.joeltech.dev.</p>
                 </div>
               </div>
 
@@ -879,7 +879,7 @@ export default function TermsOfUseClient () {
                 <h4 className="font-semibold mb-2">📞 Contact DPO</h4>
                 <div className="text-sm text-gray-700">
                   <p>Pour toute question relative à la protection de vos données personnelles :</p>
-                  <p><strong>Délégué à la Protection des Données (DPO) :</strong> dpo@candi-tracker.com</p>
+                  <p><strong>Délégué à la Protection des Données (DPO) :</strong> dpo@candi-tracker.joeltech.dev</p>
                   <p><strong>Adresse postale :</strong> DPO Candi Tracker, 21 Rue du Cher, 31100 Toulouse, France</p>
                 </div>
               </div>
@@ -1051,10 +1051,10 @@ export default function TermsOfUseClient () {
             </div>
             
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <a href="mailto:legal@candi-tracker.com" className="text-emerald-400 hover:text-emerald-300">
+              <a href="mailto:legal@candi-tracker.joeltech.dev" className="text-emerald-400 hover:text-emerald-300">
                 Questions Juridiques
               </a>
-              <a href="mailto:dpo@candi-tracker.com" className="text-emerald-400 hover:text-emerald-300">
+              <a href="mailto:dpo@candi-tracker.joeltech.dev" className="text-emerald-400 hover:text-emerald-300">
                 Protection des Données
               </a>
               <a href="/privacy-policy" className="text-emerald-400 hover:text-emerald-300">
