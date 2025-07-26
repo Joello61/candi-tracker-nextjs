@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Menu, Search, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -15,13 +15,15 @@ import {
 import { NotificationBell } from '@/components/features/NotificationBell';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
+import { useUserProfile } from '@/hooks/useUsers';
 
 interface HeaderProps {
   onMenuClick: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
+  const { data: user } = useUserProfile();
   const navigate = useRouter();
 
   const handleLogout = () => {
@@ -35,6 +37,18 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
       .map((n) => n[0])
       .join('')
       .toUpperCase();
+  };
+
+  const getAvatarUrl = () => {
+    if (!user?.avatar) return '/avatars/default-avatar.png';
+    
+    // Si l'avatar commence déjà par http, c'est une URL complète
+    if (user.avatar.startsWith('http')) {
+      return user.avatar;
+    }
+    
+    // Sinon, construire l'URL avec le backend
+    return `${process.env.NEXT_PUBLIC_BACKEND_URL}${user.avatar}`;
   };
 
   return (
@@ -61,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
         {/* Right side */}
         <div className="flex items-center space-x-4">
-          {/* Notifications - Remplacé par NotificationBell */}
+          {/* Notifications */}
           <NotificationBell />
 
           {/* User menu */}
@@ -69,7 +83,10 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                 <Avatar className="h-8 w-8">
-                  <AvatarImage src="/avatars/01.png" alt={user?.name} />
+                  <AvatarImage
+                    src={getAvatarUrl()} // 🔧 Utiliser la fonction corrigée
+                    alt={user?.name || 'Avatar utilisateur'}
+                  />
                   <AvatarFallback>
                     {user ? getInitials(user.name) : 'U'}
                   </AvatarFallback>
