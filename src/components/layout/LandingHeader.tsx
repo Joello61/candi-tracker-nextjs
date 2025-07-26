@@ -89,7 +89,7 @@ export const LandingHeader: React.FC<HeaderProps> = ({
           {/* Boutons de connexion/inscription */}
           <div className="flex items-center space-x-2 sm:space-x-4">
             {/* Boutons cachés sur très petit écran */}
-            <div className="hidden xs:flex items-center space-x-2 sm:space-x-4">
+            <div className="hidden sm:flex items-center space-x-2 sm:space-x-4">
               <Link
                 href="/login"
                 className="px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors whitespace-nowrap"
@@ -162,7 +162,7 @@ export const LandingHeader: React.FC<HeaderProps> = ({
               ))}
               
               {/* Boutons d'authentification pour très petits écrans */}
-              <div className="xs:hidden pt-4 space-y-3 border-t border-slate-200/50 dark:border-slate-700/50">
+              <div className="sm:hidden pt-4 space-y-3 border-t border-slate-200/50 dark:border-slate-700/50">
                 <Link
                   href="/login"
                   className="block w-full text-center py-2 px-4 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors border border-slate-300 dark:border-slate-600 rounded-lg"
