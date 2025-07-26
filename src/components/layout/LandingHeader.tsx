@@ -47,17 +47,20 @@ export const LandingHeader: React.FC<HeaderProps> = ({
   ];
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-lg' 
+        isScrolled
+          ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-lg'
           : 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl'
       } border-b border-slate-200/50 dark:border-slate-700/50`}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo et nom de l'application */}
-          <div className="flex items-center flex-shrink-0">
+          <Link
+            href="/"
+            className="flex items-center flex-shrink-0 hover:opacity-80 transition-opacity"
+          >
             <div className="relative w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3">
               <Image
                 src="/logo.png"
@@ -71,7 +74,7 @@ export const LandingHeader: React.FC<HeaderProps> = ({
             <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent truncate">
               {applicationName}
             </span>
-          </div>
+          </Link>
 
           {/* Navigation centrale - cachée sur mobile et tablette */}
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
@@ -160,7 +163,7 @@ export const LandingHeader: React.FC<HeaderProps> = ({
                   {link.label}
                 </Link>
               ))}
-              
+
               {/* Boutons d'authentification pour très petits écrans */}
               <div className="sm:hidden pt-4 space-y-3 border-t border-slate-200/50 dark:border-slate-700/50">
                 <Link

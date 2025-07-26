@@ -1,4 +1,3 @@
-// src/app/(auth)/layout.tsx
 import AuthLayoutClient from "@/components/layout/AuthLayoutClient"
 import { Metadata } from 'next';
 
